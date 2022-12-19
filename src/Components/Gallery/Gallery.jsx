@@ -16,8 +16,6 @@ import GalleryNine from '../img/gallery/gallery-9.jpg';
 import globalID from '../GlobalD.js';
 
 import { EncryptStorage } from 'encrypt-storage';
-import baseURLImg from '../URL/baseURLImg.js';
-import baseURL from '../URL/BaseURL.js';
 import axios from 'axios';
 
 
@@ -52,12 +50,12 @@ const Gallery = () => {
   }
 
   const gettingGalleryData = (userID)=>{
-    axios.get(`${baseURL}imageslist/${globalID}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}imageslist/${globalID}`)
     .then((res)=>{
       setGalleryData(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      return err;
     })
   }
 
@@ -118,14 +116,14 @@ const Gallery = () => {
                 <div className="gallery-item"  >
                   {
                     items.img_1 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_1}`} alt="gallery-img" style={{height:"20em",width:"30em"}} />
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_1}`} alt="gallery-img" style={{height:"20em",width:"30em"}} />
                     :
                     <img className="img-fluid"  src={GalleryOne} alt="gallery-img" />
 
                   }
                   <div className="gi-hover-warp">
                     <div className="gi-hover">
-                      <a href={`${baseURLImg}${items.img_1}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                      <a href={`${process.env.REACT_APP_IMG_URL}${items.img_1}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                       <a href="#"><i className="fa fa-chain" /></a>
                       <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
                     </div>
@@ -148,7 +146,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_2 !== ''?
-                    <img className="img-fluid" src={`${baseURLImg}${items.img_2}`} alt="gallery-img" style={{height:"20em",width:"30em"}} />
+                    <img className="img-fluid" src={`${process.env.REACT_APP_IMG_URL}${items.img_2}`} alt="gallery-img" style={{height:"20em",width:"30em"}} />
                     :
                     <img className="img-fluid"  src={GalleryTwo} alt="gallery-img" />
 
@@ -156,7 +154,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_2}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_2}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -178,7 +176,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_3 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_3}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_3}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GalleryThree} alt="gallery-img" />
 
@@ -186,7 +184,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_3}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_3}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -207,7 +205,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_4 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_4}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_4}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GalleryFour} alt="gallery-img" />
 
@@ -215,7 +213,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_4}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_4}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -236,7 +234,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_5 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_5}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_5}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GalleryFive} alt="gallery-img" />
 
@@ -244,7 +242,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_5}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_5}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -266,7 +264,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_6 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_6}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_6}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GallerySix} alt="gallery-img" />
 
@@ -274,7 +272,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_6}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_6}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -297,7 +295,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_7 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_7}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_7}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GallerySeven} alt="gallery-img" />
 
@@ -305,7 +303,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_7}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_7}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -326,7 +324,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_8 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_8}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_8}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GalleryEight} alt="gallery-img" />
 
@@ -334,7 +332,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_8}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_8}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>
@@ -355,7 +353,7 @@ const Gallery = () => {
           <div className="gallery-item">
           {
                     items.img_9 !== ''?
-                    <img className="img-fluid"  src={`${baseURLImg}${items.img_9}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
+                    <img className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.img_9}`} alt="gallery-img"  style={{height:"20em",width:"30em"}}/>
                     :
                     <img className="img-fluid"  src={GalleryNine} alt="gallery-img" />
 
@@ -363,7 +361,7 @@ const Gallery = () => {
 
             <div className="gi-hover-warp">
               <div className="gi-hover">
-                <a href={`${baseURLImg}${items.img_9}`} className="image-popup"><i className="fa fa-search-plus" /></a>
+                <a href={`${process.env.REACT_APP_IMG_URL}${items.img_9}`} className="image-popup"><i className="fa fa-search-plus" /></a>
                 <a href="#"><i className="fa fa-chain" /></a>
                 <h6>Time to Try a Bodyweight Workout <span>Run, Walk, Swimming</span></h6>
               </div>

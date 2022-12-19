@@ -6,10 +6,8 @@ import BlogTwo from '../img/trainer/trainer-2.jpg';
 import BlogThree from '../img/trainer/trainer-3.jpg';
 import BlogFour from '../img/trainer/trainer-4.jpg';
 import tesitmonailImg from '../img/price-bg.jpg';
-import {Link} from 'react-router-dom';
 import { EncryptStorage } from 'encrypt-storage';
-import baseURLImg from '../URL/baseURLImg.js';
-import baseURL from '../URL/BaseURL.js';
+import {Link} from 'react-router-dom';
 import globalID from '../GlobalD.js';
 import axios from 'axios';
 
@@ -22,7 +20,6 @@ const About = () => {
   const loadingSpinner =  async  ()=>{
     // Wait for two second
     await new Promise((r) => setTimeout(r, 1000));
-
     // Toggle loading state
     setLoading(false);
 }
@@ -47,12 +44,12 @@ const About = () => {
 
 
   const gettingAboutSecData = (userID)=>{
-    axios.get(`${baseURL}aboutuslist/${globalID}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}aboutuslist/${globalID}`)
     .then((res)=>{
       setAboutUS(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      return err;
     })
   }
 
@@ -264,12 +261,12 @@ loading?
           aboutUs.map((items)=>{
             return(
               <>
-                   <div className="col-lg-3 col-sm-6">
+        <div className="col-lg-3 col-sm-6">
           <div className="trainer-item">
             <div className="ti-pic">
               {
                 items.trainer1_img !==''?
-                <img src={`${baseURLImg}${items.trainer1_img}`} alt="trainer" />
+                <img src={`${process.env.REACT_APP_IMG_URL}${items.trainer1_img}`} alt="trainer" />
                 :
                <img src={BlogOne} alt="trainer" />
               }
@@ -299,7 +296,7 @@ loading?
             <div className="ti-pic">
               {
                 items.trainer2_img !==''?
-                <img src={`${baseURLImg}${items.trainer2_img}`} alt="trainer" />
+                <img src={`${process.env.REACT_APP_IMG_URL}${items.trainer2_img}`} alt="trainer" />
                 :
                <img src={BlogTwo} alt="trainer" />
               }
@@ -329,7 +326,7 @@ loading?
             <div className="ti-pic">
               {
                 items.trainer3_img !==''?
-                <img src={`${baseURLImg}${items.trainer3_img}`} alt="trainer" />
+                <img src={`${process.env.REACT_APP_IMG_URL}${items.trainer3_img}`} alt="trainer" />
                 :
                <img src={BlogThree} alt="trainer" />
               }
@@ -359,7 +356,7 @@ loading?
             <div className="ti-pic">
               {
                 items.trainer4_img !==''?
-                <img src={`${baseURLImg}${items.trainer4_img}`} alt="trainer" />
+                <img src={`${process.env.REACT_APP_IMG_URL}${items.trainer4_img}`} alt="trainer" />
                 :
                <img src={BlogFour} alt="trainer" />
               }

@@ -1,11 +1,6 @@
 import React from 'react';
-import {useEffect, useState} from "react";
-import AboutBread from '../img/about-bread.jpg';
-import ClassOne from '../img/classes/class-1.jpg';
-import ClassTwo from '../img/classes/class-2.jpg';
-import ClassThree from '../img/classes/class-3.jpg';
-import ClassFour from '../img/classes/class-4.jpg';
 import {Link} from 'react-router-dom';
+import {useEffect, useState} from "react";
 import iconOne from '../img/icons/chose-icon-1.png';
 import iconTwo from '../img/icons/chose-icon-2.png';
 import iconThree from '../img/icons/chose-icon-3.png';

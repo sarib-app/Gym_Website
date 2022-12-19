@@ -9,17 +9,9 @@ import iconFive from './img/icons/chose-icon-5.png';
 import iconSix from './img/icons/chose-icon-6.png';
 import PlanChooseImage from './img/price-bg.jpg';
 import ClassesTitleBg from './img/classes-title-bg.jpg';
-import ClassOne from './img/classes/class-1.jpg';
-import ClassTwo from './img/classes/class-2.jpg';
-import ClassThree from './img/classes/class-3.jpg';
-import ClassFour from './img/classes/class-4.jpg';
 
 import globalID from './GlobalD.js';
-
-import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import { EncryptStorage } from 'encrypt-storage';
-import baseURLImg from './URL/baseURLImg.js';
-import baseURL from './URL/BaseURL.js';
 import axios from 'axios';
 
 
@@ -28,7 +20,6 @@ const Main = () => {
   const[headerData , setHeaderData] = useState([]);
   const[pricingData , setPricingData] = useState([]);
   const[chooseProgramData , setChooseProgramData] = useState([]);
-
   const loadingSpinner =  async  ()=>{
               // Wait for two second
               await new Promise((r) => setTimeout(r, 1000));
@@ -58,34 +49,34 @@ const Main = () => {
   }
   
   const gettingHeaderData = (userID)=>{
-    axios.get(`${baseURL}homepagelist/${globalID}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}homepagelist/${globalID}`)
     .then((res)=>{
       setHeaderData(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      return err;
     })
 
   }
 
   const gettingChooseProgram = (userID)=>{
 
-    axios.get(`${baseURL}programlist/${globalID}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}programlist/${globalID}`)
     .then((res)=>{
       setChooseProgramData(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      return err;
     })
   }
 
   const gettingPriceProgram = (userID)=>{
-    axios.get(`${baseURL}pricinglist/${globalID}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}pricinglist/${globalID}`)
     .then((res)=>{
       setPricingData(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      return err;
     })
   }
 
@@ -145,7 +136,7 @@ const Main = () => {
             items.owner_img === ''?
             <img className="img-fluid"  src={AboutImg} alt="home-about-img" style={{height:"20em"}} />
             :
-            <img  className="img-fluid"  src={`${baseURLImg}${items.owner_img}`}alt="home-about-img" style={{height:"20em"}} />
+            <img  className="img-fluid"  src={`${process.env.REACT_APP_IMG_URL}${items.owner_img}`}alt="home-about-img" style={{height:"20em"}} />
           }
         </div>
         
@@ -185,7 +176,7 @@ const Main = () => {
             <>
                 <div className="col-lg-3 col-sm-6">
         <div className="classes-item set_bg" data-setbg="img/classes/class-1.jpg"
-          style={{backgroundImage:`url(${baseURLImg}${items.img_one})`}}
+          style={{backgroundImage:`url(${process.env.REACT_APP_IMG_URL}${items.img_one})`}}
          >
           <h4>{items.head_one  === ''? 'Crossfit Level 1':items.head_one}</h4>
           <p>
@@ -210,7 +201,7 @@ const Main = () => {
       return(
         <>
          <div className="col-lg-3 col-sm-6">
-        <div className="classes-item set-bg" data-setbg="img/classes/class-2.jpg" style={{backgroundImage:`url(${baseURLImg}${items.img_two})`}}>
+        <div className="classes-item set-bg" data-setbg="img/classes/class-2.jpg" style={{backgroundImage:`url(${process.env.REACT_APP_IMG_URL}${items.img_two})`}}>
           <h4>{ items.head_two !== '' ? items.head_two : 'BootCamp' }</h4>
           <p>
           {
@@ -237,7 +228,7 @@ const Main = () => {
     return(
       <>
        <div className="col-lg-3 col-sm-6">
-        <div className="classes-item set-bg" data-setbg="img/classes/class-3.jpg" style={{backgroundImage:`url(${baseURLImg}${items.img_three})`}}>
+        <div className="classes-item set-bg" data-setbg="img/classes/class-3.jpg" style={{backgroundImage:`url(${process.env.REACT_APP_IMG_URL}${items.img_three})`}}>
           <h4>{items.head_three !== '' ? items.head_three :'Energy Blast'}</h4>
           <p>
             {
@@ -260,7 +251,7 @@ const Main = () => {
         return(
           <>
                <div className="col-lg-3 col-sm-6">
-        <div className="classes-item set-bg" data-setbg="img/classes/class-4.jpg" style={{backgroundImage:`url(${baseURLImg}${items.img_four})`}}>
+        <div className="classes-item set-bg" data-setbg="img/classes/class-4.jpg" style={{backgroundImage:`url(${process.env.REACT_APP_IMG_URL}${items.img_four})`}}>
           <h4>
             {
               items.head_four !== ''? items.head_four :'CLASSIC BODY BALANCE'

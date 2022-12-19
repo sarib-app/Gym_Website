@@ -1,8 +1,6 @@
 import { EncryptStorage } from 'encrypt-storage';
 import React,{useState,useEffect} from 'react';
-import baseURL from '../URL/BaseURL.js';
 import {Link} from 'react-router-dom';
-// import logo from '../img/logo.png';
 import globalID from '../GlobalD.js';
 import axios from 'axios';
 
@@ -30,12 +28,12 @@ const Navbar = () => {
   }
 
   const gettingSociaLinks = (userID)=>{
-    axios.get(`${baseURL}imageslist/${userID}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}imageslist/${globalID}`)
     .then((res)=>{
       setSociaLinks(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      return err;
     })
 
   }
